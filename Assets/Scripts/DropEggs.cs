@@ -24,7 +24,6 @@ public class DropEggs : MonoBehaviour {
             // reset drop time 
             timeUntilNextDrop = Random.Range(DropTimeMin, DropTimeMax);
             // drop an egg
-            Debug.Log("egg drop");
             Instantiate(eggPrefab, transform.position, Quaternion.identity);
         }
     }

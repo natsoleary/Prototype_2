@@ -19,12 +19,11 @@ public class CollectEggs : MonoBehaviour {
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-        Debug.Log("somethign entered thet rigger");
         
         if (other.gameObject.CompareTag("Egg")) {
             Destroy(other.gameObject);
             eggsCollected++;
-            Debug.Log("collected an egg " + eggsCollected);
+            Debug.Log(eggsCollected);
         }
     }
 }
