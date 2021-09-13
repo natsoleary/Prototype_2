@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8320424464683651098}
   m_Layer: 0
   m_Name: Sheep
-  m_TagString: Untagged
+  m_TagString: Sheep
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 8320424464683651094}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -7.5659, y: 2.5866, z: 0}
-  m_LocalScale: {x: 0.23498496, y: 0.23498496, z: 0.23498496}
+  m_LocalScale: {x: 0.3507344, y: 0.3507344, z: 0.3507344}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+  Player: {fileID: 0}
 --- !u!50 &8320424464683651099
 Rigidbody2D:
   serializedVersion: 4
