@@ -13,6 +13,7 @@ private void OnTriggerEnter2D(Collider2D other) {
     if (other.gameObject.CompareTag("Sheep")) {
         SheepCounter.instance.UpdateScore(sheepValue);
         playSound.Play();
+        Destroy(other.gameObject);
 
 
     }

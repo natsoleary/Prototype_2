@@ -2,21 +2,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class CollectEggs : MonoBehaviour {
     private int eggsCollected = 0;
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public AudioSource playSound;
+    public TextMeshProUGUI text;
+    float score = 0;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 
     private void OnTriggerEnter2D(Collider2D other) {
         
@@ -24,6 +18,11 @@ public class CollectEggs : MonoBehaviour {
             Destroy(other.gameObject);
             eggsCollected++;
             Debug.Log(eggsCollected);
+            playSound.Play();
+            score += 1;
+            text.text = "Eggs: " + score.ToString();
+            StaticVariables.eggCount = score;
+            
         }
     }
 }

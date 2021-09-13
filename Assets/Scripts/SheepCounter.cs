@@ -19,6 +19,7 @@ public class SheepCounter : MonoBehaviour
     // Update is called once per frame
     public void UpdateScore(int sheep) {
         score += sheep;
-        text.text = "Score: " + score.ToString();
+        StaticVariables.sheepCount = score;
+        text.text = "Sheep: " + score.ToString();
     }
 }
