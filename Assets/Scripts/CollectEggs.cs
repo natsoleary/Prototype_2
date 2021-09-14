@@ -20,7 +20,7 @@ public class CollectEggs : MonoBehaviour {
             Debug.Log(eggsCollected);
             playSound.Play();
             score += 1;
-            text.text = ": " + score.ToString();
+            text.text =  score.ToString();
             StaticVariables.eggCount = score;
             
         }

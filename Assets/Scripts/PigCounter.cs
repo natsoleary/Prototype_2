@@ -20,6 +20,6 @@ public class PigCounter : MonoBehaviour
     public void UpdateScore(int pig) {
         score += pig;
         StaticVariables.pigCount = score;
-        text.text = ": " +score.ToString();
+        text.text = score.ToString();
     }
 }
