@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Sheep
   - Egg
+  - Pig
   layers:
   - Default
   - TransparentFX

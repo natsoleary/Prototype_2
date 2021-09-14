@@ -7,4 +7,5 @@ public class StaticVariables : MonoBehaviour
 
     public static float sheepCount;
     public static float eggCount;
+    public static float pigCount;
 }

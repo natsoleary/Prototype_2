@@ -7,6 +7,7 @@ public class ThresholdTrigger : MonoBehaviour
     // Start is called before the first frame update
 public int sheepValue = 1;
 public AudioSource playSound;
+public int pigValue = 1;
 
 
 private void OnTriggerEnter2D(Collider2D other) {
@@ -15,6 +16,10 @@ private void OnTriggerEnter2D(Collider2D other) {
         playSound.Play();
         Destroy(other.gameObject);
 
+    }
+    if (other.gameObject.CompareTag("Pig")) {
+        PigCounter.instance.UpdateScore(pigValue);
+        Destroy(other.gameObject);
 
     }
 
