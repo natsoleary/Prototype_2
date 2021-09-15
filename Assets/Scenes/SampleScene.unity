@@ -865,6 +865,51 @@ Transform:
   m_Father: {fileID: 1894474463}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!1 &277309792
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 277309793}
+  - component: {fileID: 277309794}
+  m_Layer: 0
+  m_Name: Reset Button
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &277309793
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 277309792}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 25
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &277309794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 277309792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6168f6595f13248fca780bb04692a07f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resetKey: 114
+  quitKey: 27
 --- !u!1 &385482916
 GameObject:
   m_ObjectHideFlags: 0
@@ -4603,6 +4648,7 @@ MonoBehaviour:
   pigSprite: {fileID: 21300000, guid: 4a072a8039ab84bc8b5d0ddcffc80d30, type: 3}
   eggSprite: {fileID: 21300000, guid: 56cbaaa0ab7aa47eb9603e02f939dabb, type: 3}
   chickenSprite: {fileID: 21300000, guid: 390c4c013c8ac4e95b37707a1924df9a, type: 3}
+  completedRecipes: 0
 --- !u!1 &1762255161
 GameObject:
   m_ObjectHideFlags: 0

@@ -31,6 +31,8 @@ public class Recipes : MonoBehaviour
     public Sprite eggSprite;
     public Sprite chickenSprite;
 
+    public int completedRecipes;
+
     private void Awake() {
         if (Instance == null) Instance = this;
     }
@@ -38,9 +40,9 @@ public class Recipes : MonoBehaviour
     // Start is called before the first frame update
     void Start() {
         currentRecipes = new List<Recipe>();
-        AddRandomRecipe();
-        AddRandomRecipe();
-        AddRandomRecipe();
+        AddRandomRecipe(0);
+        AddRandomRecipe(1);
+        AddRandomRecipe(2);
     }
 
     // Update is called once per frame
@@ -49,32 +51,36 @@ public class Recipes : MonoBehaviour
         // Debug.Log(currentRecipes.Count);
     }
 
-    private void AddRandomRecipe() {
+    private void AddRandomRecipe(int index) {
         int randomNumber = Random.Range(1, 4);
         // breakfast
         if (randomNumber == 1) {
             Recipe recipe = new Recipe("Breakfast", new List<Ingredient>(new[] {Ingredient.Egg, Ingredient.Egg, Ingredient.Pig}));
-            currentRecipes.Add(recipe);
-            recipe.UpdatePanel(recipePanels[currentRecipes.IndexOf(recipe)]);
+            if(currentRecipes.Count > index) currentRecipes.RemoveAt(index);
+            currentRecipes.Insert(index, recipe);
+            recipe.UpdatePanel(recipePanels[index]);
         }
         // lunch
         else if (randomNumber == 2) {
             Recipe recipe = new Recipe("Lunch", new List<Ingredient>(new[] {Ingredient.Chicken, Ingredient.Egg, Ingredient.Egg}));
-            currentRecipes.Add(recipe);
-            recipe.UpdatePanel(recipePanels[currentRecipes.IndexOf(recipe)]);
+            if(currentRecipes.Count > index) currentRecipes.RemoveAt(index);
+            currentRecipes.Insert(index, recipe);
+            recipe.UpdatePanel(recipePanels[index]);
         }
         // dinner
         if (randomNumber == 3) {
             Recipe recipe = new Recipe("Dinner", new List<Ingredient>(new[]
                 {Ingredient.Sheep, Ingredient.Sheep, Ingredient.Chicken, Ingredient.Chicken}));
-            currentRecipes.Add(recipe);
-            recipe.UpdatePanel(recipePanels[currentRecipes.IndexOf(recipe)]);
+            if(currentRecipes.Count > index) currentRecipes.RemoveAt(index);
+            currentRecipes.Insert(index, recipe);
+            recipe.UpdatePanel(recipePanels[index]);
         }
         // sweater
         if (randomNumber == 4) {
             Recipe recipe = new Recipe("Sweater", new List<Ingredient>(new[] {Ingredient.Sheep, Ingredient.Sheep}));
-            currentRecipes.Add(recipe);
-            recipe.UpdatePanel(recipePanels[currentRecipes.IndexOf(recipe)]);
+            if(currentRecipes.Count > index) currentRecipes.RemoveAt(index);
+            currentRecipes.Insert(index, recipe);
+            recipe.UpdatePanel(recipePanels[index]);
         }
     }
     
@@ -84,8 +90,7 @@ public class Recipes : MonoBehaviour
         for (int i = 0; i < currentRecipes.Count; i++) {
             if (currentRecipes[i].RecipeContains(Ingredient.Sheep)) {
                 if (currentRecipes[i].AddIngredient(Ingredient.Sheep)) {
-                    currentRecipes.RemoveAt(i);
-                    AddRandomRecipe();
+                    AddRandomRecipe(i);
                 }
                 return;
             }
@@ -98,8 +103,7 @@ public class Recipes : MonoBehaviour
         for (int i = 0; i < currentRecipes.Count; i++) {
             if (currentRecipes[i].RecipeContains(Ingredient.Pig)) {
                 if (currentRecipes[i].AddIngredient(Ingredient.Pig)) {
-                    currentRecipes.RemoveAt(i);
-                    AddRandomRecipe();
+                    AddRandomRecipe(i);
                 }
                 return;
             }
@@ -112,8 +116,7 @@ public class Recipes : MonoBehaviour
         for (int i = 0; i < currentRecipes.Count; i++) {
             if (currentRecipes[i].RecipeContains(Ingredient.Egg)) {
                 if (currentRecipes[i].AddIngredient(Ingredient.Egg)) {
-                    currentRecipes.RemoveAt(i);
-                    AddRandomRecipe();
+                    AddRandomRecipe(i);
                 }
                 return;
             }
@@ -125,8 +128,7 @@ public class Recipes : MonoBehaviour
         for (int i = 0; i < currentRecipes.Count; i++) {
             if (currentRecipes[i].RecipeContains(Ingredient.Chicken)) {
                 if (currentRecipes[i].AddIngredient(Ingredient.Chicken)) {
-                    currentRecipes.RemoveAt(i);
-                    AddRandomRecipe();
+                    AddRandomRecipe(i);
                 }
                 return;
             }
@@ -161,7 +163,11 @@ public class Recipe {
         if (panel.ingredient2 == ingredient)
             panel.ingredient2Count.text = ingredients.FindAll(i => i == panel.ingredient2).Count.ToString();
 
-        return (ingredients.Count == 0);
+        if (ingredients.Count == 0) {
+            Recipes.Instance.completedRecipes++;
+            return true;
+        }
+        return false;
     }
 
     public void UpdatePanel(RecipePanel panel) {
