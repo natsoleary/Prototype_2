@@ -5,26 +5,33 @@ using UnityEngine;
 public class RandomMovement : MonoBehaviour {
 
     public float moveSpeed;
-    public int rotateAngle;
+    public int playerDeactivateRadius;
     
-    private const float changeDirectionTime = 2.0f;
+    private const float ChangeDirectionTime = 2.0f;
     private float timeBeforeDirectionChange;
+    private Vector2 moveDirection;
 
     // Start is called before the first frame update
     void Start() {
-        timeBeforeDirectionChange = changeDirectionTime;
-        transform.Rotate(0, 0, Random.Range(0, 360));
+        timeBeforeDirectionChange = ChangeDirectionTime;
+        moveDirection = new Vector2(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f));
+        moveDirection.Normalize();
     }
 
     // Update is called once per frame
     void Update() {
-        timeBeforeDirectionChange -= Time.deltaTime;
-        if (timeBeforeDirectionChange <= 0.0f) {
-            timeBeforeDirectionChange = changeDirectionTime;
-
-            transform.Rotate(0, 0, Random.Range(-rotateAngle, rotateAngle));
+        if (Vector3.Distance(CollectEggs.Player.transform.position, transform.position) < playerDeactivateRadius) {
+            return;
         }
         
-        transform.Translate(moveSpeed * Time.deltaTime * transform.right);
+        timeBeforeDirectionChange -= Time.deltaTime;
+        if (timeBeforeDirectionChange <= 0.0f) {
+            timeBeforeDirectionChange = ChangeDirectionTime;
+            
+            moveDirection = new Vector2(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f));
+            moveDirection.Normalize();
+        }
+        
+        transform.Translate(moveSpeed * Time.deltaTime * moveDirection);
     }
 }

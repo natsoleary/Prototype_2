@@ -5,12 +5,12 @@ using UnityEngine;
 public class RunAway : MonoBehaviour
 {
     public float moveSpeed;
-    public GameObject Player;
+    public float runAwayRadius;
     
     // Update is called once per frame
     void Update() {
-        if (Vector3.Distance(Player.transform.position, transform.position) < 3) {
-            Vector3 dir = transform.position - Player.transform.position; 
+        if (Vector3.Distance(CollectEggs.Player.transform.position, transform.position) < runAwayRadius) {
+            Vector3 dir = transform.position - CollectEggs.Player.transform.position; 
             dir.Normalize();
             transform.Translate(moveSpeed * Time.deltaTime * dir);
         }

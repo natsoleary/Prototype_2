@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class DropEggs : MonoBehaviour {
 
-    private const float DropTimeMin = 2.0f;
-    private const float DropTimeMax = 6.0f;
+    public float dropTimeMin = 1.0f;
+    private float dropTimeMax;
     
     private float timeUntilNextDrop;
 
@@ -13,7 +13,8 @@ public class DropEggs : MonoBehaviour {
     
     // Start is called before the first frame update
     void Start() {
-        timeUntilNextDrop = Random.Range(DropTimeMin, DropTimeMax);
+        dropTimeMax = dropTimeMin + 5.0f;
+        timeUntilNextDrop = Random.Range(0.0f, dropTimeMin);
     }
 
     // Update is called once per frame
@@ -22,7 +23,7 @@ public class DropEggs : MonoBehaviour {
 
         if (timeUntilNextDrop <= 0) {
             // reset drop time 
-            timeUntilNextDrop = Random.Range(DropTimeMin, DropTimeMax);
+            timeUntilNextDrop = Random.Range(dropTimeMin, dropTimeMax);
             // drop an egg
             Instantiate(eggPrefab, transform.position, Quaternion.identity);
         }

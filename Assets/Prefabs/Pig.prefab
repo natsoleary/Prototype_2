@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1842335827862149241}
   - component: {fileID: -2836608709855239986}
   - component: {fileID: 3559148755576703879}
+  - component: {fileID: 1974950215917362515}
   m_Layer: 0
   m_Name: Pig
   m_TagString: Pig
@@ -97,8 +98,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05f0a04cb7c4c463397695ccaa7f04a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0
-  Player: {fileID: 0}
+  moveSpeed: 5
+  runAwayRadius: 3
 --- !u!50 &-2836608709855239986
 Rigidbody2D:
   serializedVersion: 4
@@ -119,7 +120,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!70 &3559148755576703879
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -136,3 +137,17 @@ CapsuleCollider2D:
   m_Offset: {x: 0.0000013994782, y: 0.00000008742227}
   m_Size: {x: 1.0000046, y: 0.96524185}
   m_Direction: 1
+--- !u!114 &1974950215917362515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6383105472328776124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2e2fff4f67e747e299328e832238cbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 4
+  playerDeactivateRadius: 3

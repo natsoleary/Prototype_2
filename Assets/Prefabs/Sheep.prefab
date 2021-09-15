@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8320424464683651095}
   - component: {fileID: 8320424464683651099}
   - component: {fileID: 8320424464683651098}
+  - component: {fileID: 1481410023361688638}
   m_Layer: 0
   m_Name: Sheep
   m_TagString: Sheep
@@ -98,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  Player: {fileID: 0}
+  runAwayRadius: 3
 --- !u!50 &8320424464683651099
 Rigidbody2D:
   serializedVersion: 4
@@ -146,3 +147,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.065163, y: 2.9547725}
   m_EdgeRadius: 0
+--- !u!114 &1481410023361688638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8320424464683651094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2e2fff4f67e747e299328e832238cbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 0.5
+  playerDeactivateRadius: 5

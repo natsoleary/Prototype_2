@@ -11,13 +11,9 @@ public class Scores : MonoBehaviour
 
 
     void Update() {
-
-        float breakfasts = Mathf.FloorToInt(StaticVariables.eggCount / 3);
-        float sweaters = Mathf.FloorToInt(StaticVariables.sheepCount / 2);
+        float breakfasts = Mathf.FloorToInt(Recipes.Instance.totalEggs / 3);
+        float sweaters = Mathf.FloorToInt(Recipes.Instance.totalSheep / 2);
         sweaterText.text = sweaters.ToString();
         eggText.text = breakfasts.ToString();
-
-
     }
-
 }
